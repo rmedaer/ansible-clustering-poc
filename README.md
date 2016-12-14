@@ -22,6 +22,43 @@ Let's run Ansible with example inventory and site:
 ansible-playbook -i inventory site.yml
 ```
 
+You should have the following output:
+
+```
+PLAY [all] *********************************************************************
+
+TASK [setup] *******************************************************************
+(...)
+
+TASK [clustering : Setting up clusters] ****************************************
+(...)
+
+TASK [clustering : Building host redundancy lists] *****************************
+(...)
+
+TASK [debug] *******************************************************************
+ok: [madrid-1] => {
+    "msg": "cluster: webservers/madrid; alt nodes: "
+}
+ok: [paris-1] => {
+    "msg": "cluster: webservers/paris; alt nodes: paris-2"
+}
+ok: [paris-2] => {
+    "msg": "cluster: webservers/paris; alt nodes: paris-1"
+}
+ok: [brussels-1] => {
+    "msg": "cluster: webservers/brussels; alt nodes: brussels-2, brussels-3"
+}
+ok: [brussels-2] => {
+    "msg": "cluster: webservers/brussels; alt nodes: brussels-1, brussels-3"
+}
+ok: [brussels-3] => {
+    "msg": "cluster: webservers/brussels; alt nodes: brussels-1, brussels-2"
+}
+
+PLAY RECAP *********************************************************************
+(...)
+```
 ## Contribute
 
 Would like to contribute, share or comment ? Feel free challenge it !
