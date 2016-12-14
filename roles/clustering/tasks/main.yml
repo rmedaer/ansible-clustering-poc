@@ -14,13 +14,13 @@
 #   - cluster_hosts: list of hosts within this cluster without target host
 #
 
-- name: Setting up clusters
+- name: Setting up cluster
   no_log: True
   set_fact:
     cluster: "{{ group_names | select('match', (group | mandatory | regex_escape()) + '/.*') | list | first | default(False) }}"
     cluster_hosts: []
 
-- name: Building host redundancy lists
+- name: Building alternative hosts list
   no_log: True
   when: cluster != False
   set_fact:
