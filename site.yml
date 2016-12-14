@@ -1,0 +1,9 @@
+- hosts: all
+  connection: local
+  roles:
+  - role: clustering
+    group: webservers
+  tasks:
+  - debug:
+      msg: "cluster: {{ cluster }}; alt nodes: {{ cluster_hosts | join(', ') }}"
+

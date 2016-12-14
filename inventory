@@ -1,0 +1,21 @@
+# Web server clusters
+[webservers:children]
+webservers/madrid
+webservers/paris
+webservers/brussels
+
+# 1 web server in Madrid
+[webservers/madrid]
+madrid-1
+
+# 2 web servers in Paris
+[webservers/paris]
+paris-1
+paris-2
+
+# 3 web servers in Brussels
+[webservers/brussels]
+brussels-1
+brussels-2
+brussels-3
+
